@@ -2,18 +2,26 @@
 
 // Gallery functionality
 class ImageGallery {
-  constructor(galleryId) {
+  constructor(galleryId, autoRotate = false, rotateInterval = 5000) {
     this.gallery = document.getElementById(galleryId);
     if (!this.gallery) return;
 
     this.images = this.gallery.querySelectorAll('.gallery-image img');
     this.currentIndex = 0;
     this.totalImages = this.images.length;
+    this.autoRotate = autoRotate;
+    this.rotateInterval = rotateInterval;
+    this.rotationTimer = null;
 
     if (this.totalImages === 0) return;
 
     this.initializeGallery();
     this.attachEventListeners();
+
+    // Start auto-rotation if enabled
+    if (this.autoRotate && this.totalImages > 1) {
+      this.startAutoRotation();
+    }
   }
 
   initializeGallery() {
@@ -38,11 +46,20 @@ class ImageGallery {
     const nextBtn = this.gallery.querySelector('.gallery-next');
     const dots = this.gallery.querySelectorAll('.dot');
 
-    if (prevBtn) prevBtn.addEventListener('click', () => this.previousImage());
-    if (nextBtn) nextBtn.addEventListener('click', () => this.nextImage());
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+      this.previousImage();
+      this.resetAutoRotation();
+    });
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+      this.nextImage();
+      this.resetAutoRotation();
+    });
 
     dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => this.goToImage(index));
+      dot.addEventListener('click', () => {
+        this.goToImage(index);
+        this.resetAutoRotation();
+      });
     });
   }
 
@@ -90,26 +107,38 @@ class ImageGallery {
       }
     });
   }
+
+  startAutoRotation() {
+    this.rotationTimer = setInterval(() => {
+      this.nextImage();
+    }, this.rotateInterval);
+  }
+
+  resetAutoRotation() {
+    if (this.autoRotate && this.totalImages > 1) {
+      clearInterval(this.rotationTimer);
+      this.startAutoRotation();
+    }
+  }
+
+  stopAutoRotation() {
+    if (this.rotationTimer) {
+      clearInterval(this.rotationTimer);
+    }
+  }
 }
 
 // Initialize galleries when page loads
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all galleries on the page
-  const galleryIds = ['bouncehouse-gallery', 'waterslide-gallery', 'tables-gallery'];
+  const galleryIds = ['bouncehouse-gallery', 'waterslide-gallery', 'tables-gallery', 'flowercart-gallery'];
 
   galleryIds.forEach((id) => {
     new ImageGallery(id);
   });
 
-  // Smooth scroll for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href !== '#') {
-        e.preventDefault();
-      }
-    });
-  });
+  // Initialize banners gallery with auto-rotation
+  new ImageGallery('banners-gallery', true, 5000);
 
   // Add keyboard navigation for galleries
   document.addEventListener('keydown', (e) => {

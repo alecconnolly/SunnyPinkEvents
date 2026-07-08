@@ -86,7 +86,9 @@ The site uses a pink color scheme. To customize, edit the CSS variables in `css/
 
 ```css
 :root {
-  --primary-color: #ff69b4;      /* Main pink */
+  --primary-color: #f1d5db;      /* Main light pink */
+  --secondary-color: #c15b75;    /* Medium pink for accents */
+  --accent-color: #e19fae;       /* Light pink for gradients */
   --secondary-color: #fff;        /* White */
   --dark-color: #333;             /* Dark text */
   --light-bg: #f9f9f9;            /* Light background */
