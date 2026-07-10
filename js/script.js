@@ -13,6 +13,11 @@ class ImageGallery {
     this.rotateInterval = rotateInterval;
     this.rotationTimer = null;
 
+    // Touch swipe tracking
+    this.touchStartX = 0;
+    this.touchEndX = 0;
+    this.swipeThreshold = 50; // minimum pixels to register as swipe
+
     if (this.totalImages === 0) return;
 
     this.initializeGallery();
@@ -45,6 +50,7 @@ class ImageGallery {
     const prevBtn = this.gallery.querySelector('.gallery-prev');
     const nextBtn = this.gallery.querySelector('.gallery-next');
     const dots = this.gallery.querySelectorAll('.dot');
+    const galleryImage = this.gallery.querySelector('.gallery-image');
 
     if (prevBtn) prevBtn.addEventListener('click', () => {
       this.previousImage();
@@ -61,6 +67,33 @@ class ImageGallery {
         this.resetAutoRotation();
       });
     });
+
+    // Add touch swipe support
+    if (galleryImage) {
+      galleryImage.addEventListener('touchstart', (e) => {
+        this.touchStartX = e.changedTouches[0].screenX;
+      });
+
+      galleryImage.addEventListener('touchend', (e) => {
+        this.touchEndX = e.changedTouches[0].screenX;
+        this.handleSwipe();
+      });
+    }
+  }
+
+  handleSwipe() {
+    const diff = this.touchStartX - this.touchEndX;
+
+    // Swiped left (show next image)
+    if (diff > this.swipeThreshold) {
+      this.nextImage();
+      this.resetAutoRotation();
+    }
+    // Swiped right (show previous image)
+    else if (diff < -this.swipeThreshold) {
+      this.previousImage();
+      this.resetAutoRotation();
+    }
   }
 
   nextImage() {
@@ -130,14 +163,15 @@ class ImageGallery {
 
 // Initialize galleries when page loads
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize all galleries on the page
-  const galleryIds = ['bouncehouse-gallery', 'waterslide-gallery', 'tables-gallery', 'flowercart-gallery'];
+  // Initialize all galleries on the page with auto-rotation
+  const galleryIds = ['bouncehouse-gallery', 'waterslide-gallery', 'single-waterslide-gallery', 'triple-waterslide-gallery', 'tables-gallery', 'flowercart-gallery'];
 
   galleryIds.forEach((id) => {
-    new ImageGallery(id);
+    // Auto-rotate every 8 seconds for product galleries
+    new ImageGallery(id, true, 8000);
   });
 
-  // Initialize banners gallery with auto-rotation
+  // Initialize banners gallery with faster auto-rotation
   new ImageGallery('banners-gallery', true, 5000);
 
   // Add keyboard navigation for galleries

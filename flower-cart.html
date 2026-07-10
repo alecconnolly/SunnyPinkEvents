@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flower Bar Cart Rental | Sunny Pink Events</title>
+  <title>Flower Bouquet Cart Rental | Sunny Pink Events</title>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="Rent our beautiful Flower Bar Cart for your event! Perfect for parties, weddings, and celebrations. Affordable pricing with local delivery available.">
+  <meta name="description" content="Rent our beautiful Flower Bouquet Cart for your event! Perfect for parties, weddings, and celebrations. Affordable pricing with local delivery available.">
 </head>
 <body>
   <!-- Navigation -->
@@ -14,8 +14,14 @@
       <a href="index.html" class="logo">Sunny Pink Events</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="bouncehouse.html">Bounce House</a></li>
-        <li><a href="waterslide.html">Waterslide</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Inflatables</a>
+          <ul class="dropdown-menu">
+            <li><a href="single-waterslide.html">Single Waterslide</a></li>
+            <li><a href="triple-waterslide.html">Triple Waterslide</a></li>
+            <li><a href="bouncehouse.html">Bounce House</a></li>
+          </ul>
+        </li>
         <li><a href="tables-chairs.html">Tables/Chairs</a></li>
         <li><a href="flower-cart.html">Flower Cart</a></li>
         <li><a href="banners.html">Custom Banners</a></li>
@@ -30,7 +36,7 @@
       <div class="product-detail">
         <!-- Product Header -->
         <div class="product-header">
-          <h1>🌸 Flower Bar Cart Rental</h1>
+          <h1>🌸 Flower Bouquet Cart Rental</h1>
           <p style="font-size: 1.1rem; color: #666;">Beautiful floral display cart perfect for any celebration! Add elegance to your event.</p>
         </div>
 
@@ -39,44 +45,42 @@
           <h2 style="color: #f1d5db; text-align: center; margin-bottom: 1.5rem;">Gallery</h2>
           <div class="gallery-container" id="flowercart-gallery">
             <div class="gallery-image">
-              <img src="images/flower-cart/flower-cart-1.jpg" alt="Flower Cart 1">
-              <img src="images/flower-cart/flower-cart-2.jpg" alt="Flower Cart 2">
-              <img src="images/flower-cart/flower-cart-3.jpg" alt="Flower Cart 3">
+              <img src="images/flower-cart/flower-cart-1.jfif" alt="Flower Cart 1">
+              <img src="images/flower-cart/flower-cart-2.jfif" alt="Flower Cart 2">
             </div>
             <div class="gallery-controls">
               <button class="gallery-button gallery-prev">← Previous</button>
-              <span class="gallery-counter">1 / 3</span>
+              <span class="gallery-counter">1 / 2</span>
               <button class="gallery-button gallery-next">Next →</button>
             </div>
             <div class="gallery-dots">
               <span class="dot active" onclick="new ImageGallery('flowercart-gallery').goToImage(0)"></span>
               <span class="dot" onclick="new ImageGallery('flowercart-gallery').goToImage(1)"></span>
-              <span class="dot" onclick="new ImageGallery('flowercart-gallery').goToImage(2)"></span>
             </div>
           </div>
         </div>
 
         <!-- Description -->
         <div class="description-section">
-          <h2>About Our Flower Bar Cart</h2>
+          <h2>About Our Flower Bouquet Cart</h2>
           <p>
-            Add a touch of elegance and beauty to your event with our stunning Flower Bar Cart! This gorgeous floral display is perfect 
-            for weddings, parties, celebrations, and special occasions. It makes a beautiful backdrop and conversation piece for your guests.
+            Create a memorable experience with our charming DIY Flower Bouquet Cart! Perfect for bridal showers, baby showers, birthdays, graduation parties, weddings, retirement celebrations, corporate events, and more.
+          </p>
+          <p>
+            Guests can build their own custom bouquets by choosing from a beautiful assortment of fresh flowers displayed in individual buckets on our cart. It's a fun, interactive activity that doubles as stunning event décor and a thoughtful take-home favor.
           </p>
           <p>
             <strong>Features:</strong>
           </p>
           <ul style="margin: 1rem 0 1rem 2rem;">
-            <li>Beautiful floral arrangements and greenery</li>
-            <li>Stylish cart design that stands out</li>
-            <li>Perfect for photo opportunities</li>
-            <li>Fresh flowers (or high-quality silk alternatives)</li>
-            <li>Easy to position anywhere at your venue</li>
-            <li>Adds ambiance and elegance to any space</li>
+            <li>White flower bouquet cart</li>
+            <li>Flower display buckets/vases</li>
+            <li>Interactive DIY experience for guests</li>
+            <li>Perfect photo opportunity and event décor</li>
+            <li>Thoughtful take-home favors for your guests</li>
           </ul>
           <p>
-            <strong>Perfect for:</strong> Weddings, baby showers, bridal showers, birthday parties, anniversaries, 
-            corporate events, family celebrations, and any special occasion!
+            <strong>Perfect for:</strong> Bridal showers, baby showers, birthdays, graduation parties, weddings, retirement celebrations, corporate events, and any special occasion!
           </p>
         </div>
 
@@ -104,7 +108,7 @@
               </tr>
             </tbody>
           </table>
-          <p style="font-size: 0.9rem; color: #666; margin-top: 1rem; text-align: center;"><strong>💰 Cash or Venmo discount available!</strong></p>
+          <p style="font-size: 0.9rem; color: #666; margin-top: 1rem; margin-bottom: 2.5rem; text-align: center;"><strong>💰 Cash or Venmo discount available!</strong></p>
 
           <!-- Delivery Pricing -->
           <div class="delivery-section">
@@ -142,6 +146,21 @@
           </div>
         </div>
 
+        <!-- Calendar Section -->
+        <div class="calendar-section">
+          <h2>Check Availability</h2>
+          <p style="color: #666; margin-bottom: 1rem;">
+            Click on the calendar below to see which dates are available for your event!
+          </p>
+          <div class="calendar-widget">
+            <!-- Google Calendar embed link -->
+            <iframe src="https://calendar.google.com/calendar/embed?src=f59f0c56589546a65cf0cd7bd98dc576cf234639d9b63347c7829cae0ff06709%40group.calendar.google.com&ctz=America%2FChicago" frameborder="0" scrolling="no"></iframe>
+          </div>
+          <p style="font-size: 0.9rem; color: #666;">
+            <strong>Note:</strong> Flower carts are available year-round! Check calendar for current availability.
+          </p>
+        </div>
+
         <!-- Booking Section -->
         <div class="booking-section">
           <h2>Ready to Book?</h2>
@@ -154,7 +173,7 @@
             <strong>Before your rental:</strong> Please <a href="https://www.jotform.com/build/261628167449063" target="_blank" style="color: white; text-decoration: underline;">sign our waiver</a>
           </p>
           <p style="margin-top: 1rem; font-size: 0.9rem;">
-            Have questions? Message us on <a href="https://www.facebook.com/profile.php?id=61563782272164" target="_blank" style="color: white; text-decoration: underline;">Facebook</a> or submit a rental request!
+            Have questions? Call or text <strong>(608) 561-7269</strong>, message us on <a href="https://www.facebook.com/profile.php?id=61563782272164" target="_blank" style="color: white; text-decoration: underline;">Facebook</a>, or submit a rental request!
           </p>
         </div>
       </div>
@@ -166,20 +185,11 @@
     <div class="footer-content">
       <h3 style="margin-bottom: 1.5rem; color: #f1d5db;">Sunny Pink Events</h3>
       <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=61563782272164" target="_blank" title="Follow us on Facebook">f</a>
-      </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="bouncehouse.html">Bounce House</a>
-        <a href="waterslide.html">Waterslide</a>
-        <a href="tables-chairs.html">Tables & Chairs</a>
-        <a href="flower-cart.html">Flower Cart</a>
-        <a href="banners.html">Custom Banners</a>
-        <a href="https://www.signwell.com/new_doc/ZUTELNc0sgtA2d1q/" target="_blank">Rental Waiver</a>
+        <a href="https://www.facebook.com/profile.php?id=61563782272164" target="_blank" title="Follow us on Facebook"><img src="images/logo.png" alt="Sunny Pink Events" style="height: 40px; width: auto;"></a>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Sunny Pink Events. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Questions? Reach out on <a href="https://www.facebook.com/profile.php?id=61563782272164" target="_blank" style="color: #f1d5db; text-decoration: none; font-weight: bold;">Facebook</a> or submit a <a href="https://forms.gle/WvckUxQmWaq4jmMa8" target="_blank" style="color: #f1d5db; text-decoration: none; font-weight: bold;">rental request</a>!</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Questions? Call or text us at <strong>(608) 561-7269</strong>, reach out on <a href="https://www.facebook.com/profile.php?id=61563782272164" target="_blank" style="color: #f1d5db; text-decoration: none; font-weight: bold;">Facebook</a>, or submit a <a href="https://forms.gle/WvckUxQmWaq4jmMa8" target="_blank" style="color: #f1d5db; text-decoration: none; font-weight: bold;">rental request</a>!</p>
       </div>
     </div>
   </footer>
